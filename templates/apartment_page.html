@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{apartment.title}}</h1>
+    <h3 class="text-primary">{{apartment.price}} грн</h3>
+    <p>{{apartment.location}}</p>
+    {% if apartment.image %}
+       <img class="img-fluid" src="{{apartment.image.url}}" alt="" style="max-width: 500px;">        
+    {% endif %}
+     <p>{{apartment.description}}</p>
+
+{% endblock content %}

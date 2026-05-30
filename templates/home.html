@@ -3,10 +3,24 @@
 {% block content %}
 
     <h1>Booking</h1>
-    {% for apart in apartments %}
-        <h3>{{apart.title}}</h3>
-        
-        <p>{{apart.descrtiption}}</p>
 
+    {% for apart in apartments %}
+        <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            {% if apart.image %}
+                <img src="{{apart.image.url}}" class="img-fluid rounded-start" alt="...">
+            {% endif %}           
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{apart.title}}</h5>
+                <p class="card-text">Локація: {{apart.location}}</p>
+                <span class="fw-bold text-primary">{{apart.price}} грн</span>
+                <a class="stretched-link" href="{% url 'apartment_page' apart.id %}"></a>
+            </div>
+            </div>
+        </div>
+        </div>
     {% endfor %}
 {% endblock content %}
