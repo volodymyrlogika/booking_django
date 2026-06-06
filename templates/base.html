@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+
+{% include 'menu.html' %}
+
 <div class="container mt-4">
+
     {% block content %}
 
     {% endblock %}

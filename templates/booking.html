@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Оформлення бронюювання</h1>
+
+<div class="row">
+    <div class="col col-4">
+        <div class="card">
+            {% if apartment.image %}
+            <img src="{{apartment.image.url}}" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{apartment.title}}</h5>
+                <p class="card-text">Локація: {{apartment.location}}</p>
+                <span class="fw-bold text-primary">{{apartment.price}} грн</span>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <h2>Введіть свої дані</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Дата і час заїзду</label>
+                    <input name="check_in" type="datetime-local" required class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Дата і час виїзду</label>
+                    <input name="check_out" type="datetime-local"  required class="form-control" id="inputPassword4">
+                </div>
+            </div>
+            <div class="row g-3 mb-3">
+                <div class="col">
+                    <input name="name" type="text" required class="form-control" placeholder="Введіть ваше ім'я" aria-label="First name">
+                </div>
+                <div class="col">
+                    <input name="surname" type="text" required class="form-control" placeholder="Введіть ваше прізвище" aria-label="Last name">
+                </div>
+            </div>
+            <div class="row g-3 ">
+                <div class="col">
+                    <input name="phone" type="tel" required class="form-control" placeholder="Номер телефону" aria-label="First name">
+                </div>
+                <div class="col">
+                    <input name="email" type="email" required class="form-control" placeholder="Email" aria-label="Last name">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary my-3">Підтвердити бронювання</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock content %}

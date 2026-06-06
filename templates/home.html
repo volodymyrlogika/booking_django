@@ -4,11 +4,16 @@
 
     <h1>Booking</h1>
 
+    <form action="" method="get">
+        
+    </form>
+
     {% for apart in apartments %}
         <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
             {% if apart.image %}
+        
                 <img src="{{apart.image.url}}" class="img-fluid rounded-start" alt="...">
             {% endif %}           
             </div>
@@ -24,3 +29,4 @@
         </div>
     {% endfor %}
 {% endblock content %}
+python manage.py collectstatic --noinput
