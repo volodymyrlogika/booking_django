@@ -21,6 +21,15 @@
         <h2>Введіть свої дані</h2>
         <form action="" method="post">
             {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Помилка!</strong> {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <div class="row g-3 mb-3">
               <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Дата і час заїзду</label>
@@ -30,6 +39,7 @@
                     <label for="inputPassword4" class="form-label">Дата і час виїзду</label>
                     <input name="check_out" type="datetime-local"  required class="form-control" id="inputPassword4">
                 </div>
+                
             </div>
             <div class="row g-3 mb-3">
                 <div class="col">

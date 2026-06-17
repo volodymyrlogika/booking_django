@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Бронювання оформлено</h1>
+
+<div class="row">
+    <div class="col col-4">
+        <div class="card">
+            {% if apartment.image %}
+            <img src="{{apartment.image.url}}" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{apartment.title}}</h5>
+                <p class="card-text">Локація: {{apartment.location}}</p>
+                <span class="fw-bold text-primary">{{apartment.price}} грн</span>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <h2>Бронювання #{{booking.id}} </h2> 
+        <h3>Дякуємо за бронювання!</h3>
+        <p>Деталі бронювання:</p>
+        <ul>
+            <li>Дата і час заїзду: {{booking.check_in}}</li>
+            <li>Дата і час виїзду: {{booking.check_out}}</li>
+            <li>Ім'я: {{booking.name}}</li>
+            <li>Прізвище: {{booking.surname}}</li>
+            <li>Телефон: {{booking.phone}}</li>
+            <li>Email: {{booking.email}}</li>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -31,7 +31,7 @@ class Apartment(models.Model):
 
 
 class Booking(models.Model):
-    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, verbose_name="Апартаменти")
+    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, verbose_name="Апартаменти", related_name="bookings")
     check_in = models.DateTimeField(verbose_name="Дата заїзду")
     check_out = models.DateTimeField(verbose_name="Дата виїзду")
 
