@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Логін</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                Невірний логін або пароль. Спробуйте ще раз.
+            </div>
+        {% endif %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Придумайте свій логін:</label>
+            <input name="username"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Логін має бути унікальним. </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Введіть пароль:</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Увійти</button>
+    </form>
+{% endblock %}

@@ -3,6 +3,8 @@ from django.contrib import messages
 import booking
 from .models import Apartment, Booking
 
+from django.contrib.auth.decorators import login_required
+
 def home(request):
 
     check_in = request.GET.get('check_in')
@@ -57,3 +59,9 @@ def booking_page(request, apartment_id):
             return render(request, 'booking_confirmed.html', {'apartment': apartment, 'booking': booking})
     
     return render(request, 'booking.html', {'apartment': apartment })
+
+
+@login_required
+def my_bookings(request):
+    bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'my_bookings.html', {'bookings': bookings})
